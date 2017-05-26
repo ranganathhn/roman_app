@@ -1,0 +1,14 @@
+<div class="text-center main-container">
+	<h1 >Roman Calculator</h1>
+	<div class="col-md-12">
+		<%= form_tag calculate_romans_path, :method => :get do %>
+  		<p>
+		    <%= text_field_tag :operand_1 %>
+		    <%= select_tag("operator", options_for_select([['+', '+'],
+                 ['-', '-'],['*','*'],['/','/']])) %>
+		    <%= text_field_tag :operand_2 %>
+		    <%= submit_tag "Calculate" %>
+		  </p>
+		<% end %>
+	</div>
+</div>
