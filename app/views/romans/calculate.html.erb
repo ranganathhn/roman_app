@@ -1,0 +1,20 @@
+<div id="notice">
+		<%= render 'notice_messages' %>
+	</div>
+<div class="text-center main-container">
+	<h1 >Roman Calculator</h1>
+	<div class="col-md-12">
+		<%= form_tag root_path, :method => :get, remote: :true do %>
+  		<p>
+		    <%= text_field_tag :operand_1 %>
+		    <%= select_tag("operator", options_for_select([['+', '+'],
+                 ['-', '-'],['*','*'],['/','/']])) %>
+		    <%= text_field_tag :operand_2 %>
+		    <%= submit_tag "Calculate" %>
+		  </p>
+		<% end %>
+	</div>
+	<div id="answer">
+		<%= render 'answer' %>
+	</div>
+</div>
