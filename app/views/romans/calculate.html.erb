@@ -4,13 +4,12 @@
 <div class="text-center main-container">
 	<h1 >Roman Calculator</h1>
 	<div class="col-md-12">
-		<%= form_tag root_path, :method => :get, remote: :true do %>
+		<%= form_for('calc', url: root_path, :method => :get, remote: :true) do |f|%>
   		<p>
-		    <%= text_field_tag :operand_1 %>
-		    <%= select_tag("operator", options_for_select([['+', '+'],
-                 ['-', '-'],['*','*'],['/','/']])) %>
-		    <%= text_field_tag :operand_2 %>
-		    <%= submit_tag "Calculate" %>
+		    <%= f.text_field :operand_1, :required => true %>
+		    <%= f.select("operator", options_for_select(['+','-','*','/'])) %>
+		    <%= f.text_field :operand_2, :required => true %>
+		    <%= f.submit "Calculate" %>
 		  </p>
 		<% end %>
 	</div>

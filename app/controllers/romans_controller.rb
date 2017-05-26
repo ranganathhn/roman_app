@@ -12,9 +12,9 @@ class RomansController < ApplicationController
 
 	def check_for_roman_and_calulate
 		roman_symbols = %w[I V X L C D M]
-		@operand_1 = params[:operand_1]
-		@operand_2 = params[:operand_2]
-		@operator =  params[:operator]
+		@operand_1 = params[:calc][:operand_1]
+		@operand_2 = params[:calc][:operand_2]
+		@operator =  params[:calc][:operator]
 
 		# check for empty hits
 		if @operand_1.present? && @operand_2.present?
@@ -34,6 +34,6 @@ class RomansController < ApplicationController
 
 	def is_calculate_present?
 		# if calulation params present do calculation
-		params[:commit] == "Calculate" if params[:commit].present?
+		params[:calc].present?
 	end
 end
